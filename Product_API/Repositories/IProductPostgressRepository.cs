@@ -37,7 +37,7 @@ namespace Product_API.Repositories
                 try
                 {
                     Product product = new Product();
-                    using NpgsqlCommand cmd = new NpgsqlCommand(@$"select * from users ", connection);
+                    using NpgsqlCommand cmd = new NpgsqlCommand(@$"select * from products ", connection);
                     var reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
