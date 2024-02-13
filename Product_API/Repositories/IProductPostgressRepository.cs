@@ -15,13 +15,13 @@ namespace Product_API.Repositories
                 try
                 {
                     using NpgsqlCommand cmd = new NpgsqlCommand(@$"insert into products(Name,Description,PhotoPath) values ('{product.Name}','{product.Description}','{product.PhotoPath}') ", connection);
-                    var reader = cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
 
 
                 }
                 catch
                 {
-                    Console.WriteLine("Something wrong with getting all students");
+                   
                 }
             }
             return product;
@@ -37,7 +37,7 @@ namespace Product_API.Repositories
                 try
                 {
                     Product product = new Product();
-                    using NpgsqlCommand cmd = new NpgsqlCommand(@$"select username from users ", connection);
+                    using NpgsqlCommand cmd = new NpgsqlCommand(@$"select * from users ", connection);
                     var reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
